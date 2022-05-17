@@ -33,18 +33,18 @@ if first == 'human':
         else:
             print(f'Осталось {count} конфет.')
             bot = random.randint(1,29)
-            count -= bot
+            count - = bot
             print(f'Bot взял {bot} конфет.')
-            if count <= 0:
+            if count < = 0:
                 print('Победа бота')
             else:
                 print(f'Осталось {count} конфет')
 else:  
     while count > 0:
         bot = random.randint(1,28)
-        count -= bot
+        count - = bot
         print(f'Bot взял {bot} конфет.')
-        if count <= 0:
+        if count < = 0:
             print('Победа бота')
         else:
             print(f'Осталось {count} конфет')     
@@ -53,9 +53,9 @@ else:
                 second = int(input(text))
                 if second not in range(1,29):
                     print('Введено некорректное значение')
-            count -= second
+            count - = second
             second = 0
-            if count <= 0:
+            if count < = 0:
                 print('Поздравляем, Вы победили и забираете все конфеты')
             else:
                 print(f'Осталось {count} конфет.')
