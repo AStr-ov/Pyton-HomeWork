@@ -17,7 +17,7 @@ players.remove(first)
 second = players[0]
 print(f'Вторым ходит {second}')
 text = f'Введите количество забираемых конфет от 1 до 28: '
-count = 100
+count = 2021
 print(f'Имеется {count} конфет.')
 if first == 'human':
     first = 0 
