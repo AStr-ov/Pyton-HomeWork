@@ -18,7 +18,7 @@ second = players[0]
 print(f'Вторым ходит {second}')
 text=f'{first} вводит количество забираемых конфет от 1 до 28: '
 text2=f'{second} вводит количество забираемых конфет от 1 до 28: ' 
-count = 100
+count = 2021
 first,second = 0, 0
 print(f'Имеется {count} конфет.')
 while count > 0:
