@@ -1,29 +1,25 @@
 #Реализуйте RLE алгоритм:реализуйте модуль сжатия и восстановления данных.
 #Входные и выходные данные хранятся в отдельных текстовых файлах.
 
-s='AVEGOOMUURRRKS'              
-# with open('str_chars','w') as d:  #создание исходного файла
-#     d.writelines(s)
-print(f'Текст исходного файлы - {s}') 
-       
-from_file = ''  # прмежуточная переменная-строка (для удобства) 
-d= open('str_chars','r')
-for i in d:
-    from_file += i  # копирование данных исходного файла
-d.close()
+st ='AVEGOOMMMMMMMMMMMMMMUURRRKIIIIIIIIIISS'
+with open('init','w')as d:
+    d.writelines(st)       # создается исходный файл с текстом
+from_file = ''             # создается промежуточная переменная
+with open('init','r')as d:
+    for i in st:
+        from_file += i     # в переменную копируются данные исходного файла
+with open('kod','w') as d:
+    for i in range(len(from_file)):            # модуль сжатия
+        if from_file[i] != from_file[i-1]:   
+            d.write(str(from_file.count(from_file[i]))) # запись в файл количества символов
+            d.write(from_file[i])               # запись в файл символов
+    
+nums = [(from_file.count(from_file[i])) for i in range(len(from_file)) if from_file[i] != from_file[i-1]] # Список количества символов
+chars = [from_file[i] for i in range(len(from_file)) if from_file[i] != from_file[i-1]]           # Список символов
 
-with open('rle','w') as data:             # запись в файл
-        for i in range(len(from_file)):   # модуль сжатия
-            if from_file[i] != from_file[i-1]:
-                data.write(str(from_file.count(from_file[i])))
-                data.write(from_file[i])
-                
-kod = ''       # прмежуточная переменная-строка (для удобства)         
-g=open('rle','r')
-for i in g:
-    kod += i  # копирование из файла с результатом сжатия
-print(f'Результат работы модуля сжатия RLE - {kod}')
-
-with open('again','w') as data:    # запись в файл 
-    for i in range(0,len(kod),2):  #модуль восстановления
-        data.write(int(kod[i])*kod[i+1])
+b = ''
+b += str(list(map(lambda x,y: x*y,nums,chars))) # блок восстановления
+with open('again','w')as d:               # запись в файл
+    for i in b:                        
+        if i.isalpha():                   # полученных символов
+            d.write(i)
