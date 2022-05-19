@@ -17,9 +17,6 @@ with open('kod','w') as d:
 nums = [(from_file.count(from_file[i])) for i in range(len(from_file)) if from_file[i] != from_file[i-1]] # Список количества символов
 chars = [from_file[i] for i in range(len(from_file)) if from_file[i] != from_file[i-1]]           # Список символов
 
-b = ''
-b += str(list(map(lambda x,y: x*y,nums,chars))) # блок восстановления
 with open('again','w')as d:               # запись в файл
-    for i in b:                        
-        if i.isalpha():                   # полученных символов
-            d.write(i)
+    for i in (map(lambda x,y: x*y,nums,chars)): # модуль восстановления
+        d.write(str(i))  
